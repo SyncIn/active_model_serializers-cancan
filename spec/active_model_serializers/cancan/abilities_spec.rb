@@ -6,6 +6,7 @@ describe ActiveModel::Serializer::CanCan::Abilities do
 
   class MockAbility
     include CanCan::Ability
+
     def initialize(user)
       can :manage, Category
       cannot :read, Category

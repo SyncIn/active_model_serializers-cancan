@@ -12,12 +12,14 @@ end
 
 class User < SuperModel::Base
   include ActiveModel::SerializerSupport
+
   has_many :projects
   has_many :categories
 end
 
 class Project < SuperModel::Base
   include ActiveModel::SerializerSupport
+
   belongs_to :user
   belongs_to :category
   has_many :categories
@@ -25,6 +27,7 @@ end
 
 class Category < SuperModel::Base
   include ActiveModel::SerializerSupport
+
   belongs_to :user
   belongs_to :project
   has_many :projects
@@ -32,7 +35,7 @@ end
 
 RSpec.configure do |config|
   config.before do
-    user1 = User.create(id: 1, name: "User1") 
+    user1 = User.create(id: 1, name: "User1")
     user2 = User.create(id: 2, name: "User2")
 
     c = Category.create(project: Project.create(user: user2))

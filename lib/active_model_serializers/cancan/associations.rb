@@ -14,8 +14,8 @@ module ActiveModel
             find_serializable(item).serializable_hash
           end
         end
-        alias_method_chain :serialize, :cancan
 
+        alias_method_chain :serialize, :cancan
       end
 
       class HasOne #:nodoc:
